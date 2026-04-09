@@ -1,0 +1,159 @@
+{
+  "colleges": [
+    {
+      "name": "College of Engineering",
+      "departments": [
+        {
+          "name": "Computer Science",
+          "research_areas": ["AI & Machine Learning", "Cybersecurity", "Computer Vision", "Human-Computer Interaction", "Data Science"],
+          "keywords": ["robot", "computer", "code", "cloud", "eye", "face", "brain", "gear"]
+        },
+        {
+          "name": "Electrical & Computer Engineering",
+          "research_areas": ["Power Systems", "Signal Processing", "Wireless Communications", "Semiconductor Research"],
+          "keywords": ["lightning", "lightning bolt", "antenna", "chip", "circuit"]
+        },
+        {
+          "name": "Civil Engineering",
+          "research_areas": ["Infrastructure Design", "Structural Engineering", "Transportation", "Water Resources"],
+          "keywords": ["bridge", "building", "road", "house", "dam"]
+        },
+        {
+          "name": "Mechanical Engineering",
+          "research_areas": ["Aerospace Systems", "Biomedical Devices", "Additive Manufacturing", "Thermal Systems"],
+          "keywords": ["car", "airplane", "rocket", "wheel", "engine", "helicopter"]
+        },
+        {
+          "name": "Metallurgical, Materials & Biomedical Engineering",
+          "research_areas": ["3D Printing", "Biomaterials", "Nanomaterials", "Corrosion Science"],
+          "keywords": ["diamond", "bone", "metal"]
+        }
+      ]
+    },
+    {
+      "name": "College of Science",
+      "departments": [
+        {
+          "name": "Biological Sciences",
+          "research_areas": ["Chihuahuan Desert Ecology", "Conservation Biology", "Evolutionary Biology", "Microbiology"],
+          "keywords": ["cactus", "tree", "flower", "fish", "bird", "butterfly", "snake", "spider", "ant", "leaf", "mushroom"]
+        },
+        {
+          "name": "Chemistry & Biochemistry",
+          "research_areas": ["Drug Discovery", "Environmental Chemistry", "Forensic Science", "Materials Chemistry"],
+          "keywords": ["flask", "test tube", "molecule", "fire", "water"]
+        },
+        {
+          "name": "Physics",
+          "research_areas": ["Astrophysics", "Particle Physics", "Cosmology", "Optics"],
+          "keywords": ["star", "moon", "planet", "sun", "magnet", "telescope"]
+        },
+        {
+          "name": "Geological Sciences",
+          "research_areas": ["Seismology", "Hydrogeology", "Mineral Resources", "Climate Science"],
+          "keywords": ["mountain", "volcano", "rock", "crystal", "earthquake"]
+        },
+        {
+          "name": "Mathematical Sciences",
+          "research_areas": ["Applied Mathematics", "Statistics", "Computational Mathematics"],
+          "keywords": ["triangle", "circle", "square", "calculator"]
+        },
+        {
+          "name": "Environmental Science & Engineering",
+          "research_areas": ["Air Quality", "Water Treatment", "Renewable Energy", "Climate Change"],
+          "keywords": ["wind", "rain", "cloud", "tornado", "snowflake", "rainbow"]
+        }
+      ]
+    },
+    {
+      "name": "College of Health Sciences",
+      "departments": [
+        {
+          "name": "Nursing",
+          "research_areas": ["Border Health", "Community Nursing", "Pediatric Care"],
+          "keywords": ["stethoscope", "hospital", "nurse", "heart", "bandage"]
+        },
+        {
+          "name": "Kinesiology",
+          "research_areas": ["Sports Medicine", "Biomechanics", "Exercise Physiology"],
+          "keywords": ["running person", "basketball", "soccer ball", "tennis", "bicycle"]
+        },
+        {
+          "name": "Public Health",
+          "research_areas": ["Epidemiology", "Health Disparities", "Environmental Health"],
+          "keywords": ["pill", "mask", "syringe"]
+        },
+        {
+          "name": "Rehabilitation Sciences",
+          "research_areas": ["Physical Therapy", "Speech-Language Pathology", "Prosthetics"],
+          "keywords": ["hand", "arm", "leg", "wheelchair"]
+        }
+      ]
+    },
+    {
+      "name": "Woody L. Hunt College of Business",
+      "departments": [
+        {
+          "name": "Finance & Economics",
+          "research_areas": ["International Trade", "Border Economics", "Financial Markets"],
+          "keywords": ["money", "dollar", "coin", "bank", "chart"]
+        },
+        {
+          "name": "Marketing & Management",
+          "research_areas": ["Entrepreneurship", "Supply Chain Management", "Digital Marketing"],
+          "keywords": ["shopping cart", "store", "briefcase", "lightbulb"]
+        }
+      ]
+    },
+    {
+      "name": "College of Education",
+      "departments": [
+        {
+          "name": "Teacher Education",
+          "research_areas": ["Bilingual Education", "STEM Education", "Literacy", "Educational Technology"],
+          "keywords": ["book", "pencil", "school", "chalkboard", "apple", "backpack"]
+        },
+        {
+          "name": "Educational Leadership & Foundations",
+          "research_areas": ["Education Policy", "Community Engagement", "Higher Education"],
+          "keywords": ["graduation cap", "trophy", "medal"]
+        }
+      ]
+    },
+    {
+      "name": "College of Liberal Arts",
+      "departments": [
+        {
+          "name": "Art",
+          "research_areas": ["Visual Arts", "Sculpture", "Digital Art", "Border Culture Art"],
+          "keywords": ["paint brush", "palette", "camera", "picture", "painting"]
+        },
+        {
+          "name": "Music",
+          "research_areas": ["Music Performance", "Music Education", "Mariachi Studies", "Composition"],
+          "keywords": ["guitar", "piano", "drum", "music note", "microphone", "trumpet"]
+        },
+        {
+          "name": "Theatre & Dance",
+          "research_areas": ["Performing Arts", "Choreography", "Stage Design"],
+          "keywords": ["mask", "dancer", "stage"]
+        },
+        {
+          "name": "Communication",
+          "research_areas": ["Journalism", "Film Studies", "Public Relations", "Digital Media"],
+          "keywords": ["tv", "newspaper", "megaphone", "phone"]
+        },
+        {
+          "name": "History",
+          "research_areas": ["Border History", "Latin American History", "U.S.-Mexico Relations"],
+          "keywords": ["castle", "sword", "flag", "map", "clock"]
+        },
+        {
+          "name": "Languages & Linguistics",
+          "research_areas": ["Bilingualism", "Spanish Linguistics", "Translation Studies"],
+          "keywords": ["speech bubble", "letter", "globe"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "utep-draw-ai-backend",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "UTEP Draw AI backend — Express + SQLite + Claude API",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.86.1",
+    "better-sqlite3": "^12.8.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.1",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.3.2"
+  }
+}
