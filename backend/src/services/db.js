@@ -1,58 +1,61 @@
-import Database from 'better-sqlite3';
-import path from 'path';
-import { fileURLToPath } from 'url';
+import pg from 'pg';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const DB_PATH = path.join(__dirname, '../../data/utep-draw.db');
+const pool = new pg.Pool({
+  connectionString: process.env.DATABASE_URL,
+});
 
-const db = new Database(DB_PATH);
+// Initialize schema on first connection
+export async function initDB() {
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS drawings (
+      id          SERIAL PRIMARY KEY,
+      name        TEXT NOT NULL,
+      image_b64   TEXT NOT NULL,
+      top_guess   TEXT NOT NULL,
+      college     TEXT,
+      department  TEXT,
+      explanation TEXT,
+      fun_fact    TEXT,
+      created_at  TIMESTAMPTZ DEFAULT NOW()
+    );
 
-// Enable WAL mode for better concurrent read performance
-db.pragma('journal_mode = WAL');
+    CREATE INDEX IF NOT EXISTS idx_drawings_created_at ON drawings(created_at DESC);
+  `);
+  console.log('[DB] PostgreSQL connected, schema ready');
+}
 
-db.exec(`
-  CREATE TABLE IF NOT EXISTS drawings (
-    id          INTEGER PRIMARY KEY AUTOINCREMENT,
-    name        TEXT NOT NULL,
-    image_b64   TEXT NOT NULL,
-    top_guess   TEXT NOT NULL,
-    college     TEXT,
-    department  TEXT,
-    explanation TEXT,
-    fun_fact    TEXT,
-    created_at  DATETIME DEFAULT CURRENT_TIMESTAMP
+export async function insertDrawing({ name, image_b64, top_guess, college, department, explanation, fun_fact }) {
+  const result = await pool.query(
+    `INSERT INTO drawings (name, image_b64, top_guess, college, department, explanation, fun_fact)
+     VALUES ($1, $2, $3, $4, $5, $6, $7)
+     RETURNING id, created_at`,
+    [name, image_b64, top_guess, college, department, explanation, fun_fact]
   );
-
-  CREATE INDEX IF NOT EXISTS idx_drawings_created_at ON drawings(created_at DESC);
-`);
-
-export function insertDrawing({ name, image_b64, top_guess, college, department, explanation, fun_fact }) {
-  const stmt = db.prepare(`
-    INSERT INTO drawings (name, image_b64, top_guess, college, department, explanation, fun_fact)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
-  `);
-  const result = stmt.run(name, image_b64, top_guess, college, department, explanation, fun_fact);
-  return { id: result.lastInsertRowid, created_at: new Date().toISOString() };
+  return result.rows[0];
 }
 
-export function getGallery(limit = 24, offset = 0) {
-  const stmt = db.prepare(`
-    SELECT id, name, image_b64, top_guess, department, created_at
-    FROM drawings
-    ORDER BY created_at DESC
-    LIMIT ? OFFSET ?
-  `);
-  return stmt.all(limit, offset);
+export async function getGallery(limit = 24, offset = 0) {
+  const result = await pool.query(
+    `SELECT id, name, image_b64, top_guess, department, created_at
+     FROM drawings
+     ORDER BY created_at DESC
+     LIMIT $1 OFFSET $2`,
+    [limit, offset]
+  );
+  return result.rows;
 }
 
-export function getDrawingById(id) {
-  const stmt = db.prepare(`SELECT * FROM drawings WHERE id = ?`);
-  return stmt.get(id);
+export async function getDrawingById(id) {
+  const result = await pool.query(
+    `SELECT * FROM drawings WHERE id = $1`,
+    [id]
+  );
+  return result.rows[0] || null;
 }
 
-export function getTotalCount() {
-  const stmt = db.prepare(`SELECT COUNT(*) as count FROM drawings`);
-  return stmt.get().count;
+export async function getTotalCount() {
+  const result = await pool.query(`SELECT COUNT(*)::int as count FROM drawings`);
+  return result.rows[0].count;
 }
 
-export default db;
+export default pool;

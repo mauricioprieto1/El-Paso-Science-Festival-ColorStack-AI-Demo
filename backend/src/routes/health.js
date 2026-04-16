@@ -3,9 +3,9 @@ import { getTotalCount } from '../services/db.js';
 
 const router = Router();
 
-router.get('/health', (req, res) => {
+router.get('/health', async (req, res) => {
   try {
-    const count = getTotalCount();
+    const count = await getTotalCount();
     res.json({
       status: 'ok',
       db: 'ok',

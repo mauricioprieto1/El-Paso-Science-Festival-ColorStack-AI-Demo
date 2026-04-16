@@ -2,6 +2,7 @@ import { useState, useCallback, useEffect } from 'react';
 import useDrawing from '../hooks/useDrawing';
 import useApi from '../hooks/useApi';
 import useSpeech from '../hooks/useSpeech';
+import useSfx from '../hooks/useSfx';
 import DrawingCanvas from '../components/DrawingCanvas';
 import BrushControls from '../components/BrushControls';
 import NameInput from '../components/NameInput';
@@ -15,13 +16,13 @@ export default function DrawPage() {
   const { canvasRef, brushSize, setBrushSize, hasDrawing, clearCanvas, getBase64 } = useDrawing();
   const { loading, error, setError, submitGuess, saveDrawing } = useApi();
   const { speak, stop } = useSpeech();
+  const { playSubmitYay } = useSfx();
 
   const [name, setName] = useState('');
   const [result, setResult] = useState(null);
   const [confettiFire, setConfettiFire] = useState(0);
   const [cooldown, setCooldown] = useState(0);
 
-  // Cooldown timer
   useEffect(() => {
     if (cooldown <= 0) return;
     const timer = setInterval(() => setCooldown((c) => c - 1), 1000);
@@ -30,8 +31,8 @@ export default function DrawPage() {
 
   const handleGuess = useCallback(async () => {
     if (!hasDrawing || loading || cooldown > 0) return;
-
-    stop(); // Cancel any in-flight speech
+    playSubmitYay();
+    stop();
     const imageBase64 = getBase64();
     const data = await submitGuess(imageBase64);
 
@@ -40,12 +41,8 @@ export default function DrawPage() {
       setConfettiFire((n) => n + 1);
       setCooldown(COOLDOWN_SECONDS);
 
-      // Speak the result
-      if (data.utep?.speech) {
-        speak(data.utep.speech);
-      }
+      if (data.utep?.speech) speak(data.utep.speech);
 
-      // Save in background (fire-and-forget)
       saveDrawing({
         name: name.trim() || 'Anonymous Artist',
         image: imageBase64,
@@ -56,7 +53,7 @@ export default function DrawPage() {
         fun_fact: data.utep?.fun_fact,
       });
     }
-  }, [hasDrawing, loading, cooldown, getBase64, submitGuess, saveDrawing, speak, stop, name]);
+  }, [hasDrawing, loading, cooldown, getBase64, submitGuess, saveDrawing, speak, stop, name, playSubmitYay]);
 
   const handleClear = useCallback(() => {
     clearCanvas();
@@ -68,101 +65,78 @@ export default function DrawPage() {
   const topGuess = result?.guesses?.[0]?.label;
 
   return (
-    <main className="flex-1 w-full max-w-[1200px] mx-auto px-6 py-8 md:px-9">
-      {/* Prompt area */}
-      <div className="text-center mb-8">
-        <div className="text-[11px] font-bold tracking-[4px] uppercase text-utep-orange mb-2">
-          ✦ Interactive AI Demo ✦
-        </div>
-        <h1 className="font-heading text-[clamp(36px,5vw,58px)] tracking-wider leading-none bg-gradient-to-br from-white to-white/70 bg-clip-text text-transparent mb-2">
-          {topGuess ? `It's a ${topGuess}!` : 'Draw Something!'}
-        </h1>
-        <p className="text-sm text-utep-text-dim">
-          {result
-            ? "Here's how this connects to UTEP research and academics"
-            : 'Use your finger, mouse, or drawing tablet to sketch — the AI will guess what it is and connect it to UTEP research'}
-        </p>
-      </div>
-
-      {/* Main layout: canvas left, results right */}
-      <div className="grid grid-cols-1 md:grid-cols-[1fr_420px] gap-7">
-        {/* Left: Canvas panel */}
-        <div className="flex flex-col gap-4">
-          <NameInput name={name} onChange={setName} />
-          <DrawingCanvas canvasRef={canvasRef} hasDrawing={hasDrawing} />
-          <BrushControls
-            brushSize={brushSize}
-            onBrushChange={setBrushSize}
-            onClear={handleClear}
-            onGuess={handleGuess}
-            loading={loading}
-            cooldown={cooldown}
-            hasDrawing={hasDrawing}
-          />
+    <main className="flex-1 flex items-center justify-center p-4 overflow-hidden">
+      <div className="w-full max-w-4xl flex flex-col gap-4">
+        <div className="text-center">
+          <h2 className="font-heading text-4xl md:text-5xl tracking-wider text-white leading-none">
+            Can AI read your drawing?
+          </h2>
         </div>
 
-        {/* Right: Results panel */}
-        <div className="flex flex-col gap-4">
-          {/* Loading state */}
-          {loading && (
-            <div className="bg-utep-card border border-utep-border rounded-2xl p-5 backdrop-blur-lg flex flex-col items-center justify-center min-h-[200px] gap-3">
-              <div className="w-8 h-8 border-3 border-utep-orange/20 border-t-utep-orange rounded-full animate-spin" />
-              <span className="text-sm text-utep-text-dim">The AI is thinking...</span>
-            </div>
-          )}
+        <div className="flex flex-col md:flex-row gap-6 items-stretch">
 
-          {/* Error state */}
-          {error && !loading && (
-            <div className="bg-utep-card border border-red-500/30 rounded-2xl p-5 backdrop-blur-lg text-center">
-              <p className="text-red-400 text-sm mb-2">😕 {error}</p>
-              <button
-                onClick={handleGuess}
-                className="text-xs text-utep-orange hover:underline cursor-pointer"
-              >
-                Try again
-              </button>
-            </div>
-          )}
+          {/* Left — Canvas area */}
+          <div className="flex flex-col gap-3 md:w-1/2">
+            <NameInput name={name} onChange={setName} />
+            <DrawingCanvas canvasRef={canvasRef} hasDrawing={hasDrawing} />
+            <BrushControls
+              brushSize={brushSize}
+              onBrushChange={setBrushSize}
+              onClear={handleClear}
+              onGuess={handleGuess}
+              loading={loading}
+              cooldown={cooldown}
+              hasDrawing={hasDrawing}
+            />
+          </div>
 
-          {/* Results */}
-          {result && !loading && (
-            <>
-              <ResultCard guesses={result.guesses} />
-              <UtepCard utep={result.utep} />
-            </>
-          )}
-
-          {/* Empty state */}
-          {!result && !loading && !error && (
-            <>
-              <div className="bg-utep-card border border-utep-border rounded-2xl p-5 backdrop-blur-lg">
-                <div className="text-[10px] font-bold tracking-[3px] uppercase text-utep-orange mb-4">
-                  🤖 AI Top Guesses
-                </div>
-                <p className="text-center text-sm text-utep-text-dim italic py-5">
-                  Your prediction will appear here after you draw something.
-                </p>
+          {/* Right — Results area */}
+          <div className="md:w-1/2 flex flex-col justify-center min-h-0">
+            {loading && (
+              <div className="flex flex-col items-center justify-center gap-3 py-12">
+                <div className="w-6 h-6 border-2 border-utep-orange/20 border-t-utep-orange rounded-full animate-spin" />
+                <span className="text-xs text-white/30">Analyzing your drawing...</span>
               </div>
-              <div className="bg-utep-card border border-utep-border rounded-2xl p-5 backdrop-blur-lg flex-1">
-                <div className="text-[10px] font-bold tracking-[3px] uppercase text-utep-orange mb-4">
-                  🏫 UTEP Connection
-                </div>
-                <div className="flex flex-col items-center justify-center min-h-[200px] gap-3 opacity-40">
-                  <span className="text-4xl animate-[float_4s_ease-in-out_infinite]">🔬</span>
-                  <span className="text-sm text-utep-text-dim text-center max-w-[200px]">
-                    Hit "What Did I Draw?" to discover your UTEP connection
-                  </span>
-                </div>
+            )}
+
+            {error && !loading && (
+              <div className="text-center py-8">
+                <p className="text-red-400/70 text-sm mb-2">{error}</p>
+                <button onClick={handleGuess} className="text-xs text-utep-orange/60 hover:text-utep-orange cursor-pointer">
+                  Try again
+                </button>
               </div>
-            </>
-          )}
+            )}
+
+            {result && !loading && (
+              <div className="flex flex-col gap-5 animate-[slide-up_0.3s_ease-out]">
+                {/* Title */}
+                <div>
+                  <h2 className="font-heading text-3xl tracking-wider text-white leading-none mb-1">
+                    {topGuess ? `It's a ${topGuess}!` : 'Nice drawing!'}
+                  </h2>
+                  <p className="text-xs text-white/30">AI confidence breakdown</p>
+                </div>
+
+                <ResultCard guesses={result.guesses} />
+
+                <div className="h-px bg-white/5" />
+
+                <UtepCard utep={result.utep} />
+              </div>
+            )}
+
+            {!result && !loading && !error && (
+              <div className="flex flex-col items-center justify-center gap-2 py-12 opacity-20">
+                <span className="text-3xl">🔬</span>
+                <span className="text-xs text-white/50 text-center max-w-48">
+                  Draw something and hit the button to discover its UTEP connection
+                </span>
+              </div>
+            )}
+          </div>
         </div>
       </div>
-
-      {/* Footer */}
-      <footer className="text-center py-4 mt-8 text-[11px] text-utep-text-dim tracking-wide border-t border-utep-orange/8">
-        Powered by <span className="text-utep-orange">Claude AI</span> · Made with ♥ for <span className="text-utep-orange">UTEP</span> &amp; El Paso
-      </footer>
 
       <Confetti fire={confettiFire} />
     </main>

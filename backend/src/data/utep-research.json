@@ -6,27 +6,81 @@
         {
           "name": "Computer Science",
           "research_areas": ["AI & Machine Learning", "Cybersecurity", "Computer Vision", "Human-Computer Interaction", "Data Science"],
-          "keywords": ["robot", "computer", "code", "cloud", "eye", "face", "brain", "gear"]
+          "keywords": ["robot", "computer", "code", "cloud", "eye", "face", "brain", "gear"],
+          "description": "UTEP's CS department trains AI researchers, software engineers, and cybersecurity experts. The department has strong partnerships with national labs and defense organizations in the region.",
+          "fun_facts": [
+            "UTEP is one of the top universities in the nation for awarding CS degrees to Hispanic students.",
+            "UTEP CS students regularly intern at companies like Google, Microsoft, IBM, and NASA's Jet Propulsion Lab.",
+            "UTEP's cybersecurity program helps protect critical infrastructure along the U.S.-Mexico border."
+          ],
+          "connections": {
+            "robot": "Robots use AI and programming — exactly what UTEP CS students learn to build!",
+            "computer": "Every app, game, and website starts with code — and UTEP trains world-class coders.",
+            "brain": "AI tries to think like a brain — UTEP researchers build intelligent systems that learn and adapt.",
+            "gear": "Gears make machines work, and software engineering at UTEP makes digital systems work."
+          }
         },
         {
           "name": "Electrical & Computer Engineering",
           "research_areas": ["Power Systems", "Signal Processing", "Wireless Communications", "Semiconductor Research"],
-          "keywords": ["lightning", "lightning bolt", "antenna", "chip", "circuit"]
+          "keywords": ["lightning", "lightning bolt", "antenna", "chip", "circuit", "battery"],
+          "description": "UTEP's ECE department works on power grids, wireless tech, and chip design. Researchers develop smart energy solutions for the growing El Paso–Juárez region.",
+          "fun_facts": [
+            "UTEP engineers are developing smart power grid technology to bring reliable electricity to remote border communities.",
+            "UTEP's ECE labs have equipment worth millions of dollars for testing circuits and wireless systems.",
+            "El Paso gets over 300 days of sunshine a year, and UTEP engineers are harnessing it with solar energy research."
+          ],
+          "connections": {
+            "lightning": "Lightning is pure electricity — UTEP electrical engineers study how to harness and control electrical power!",
+            "battery": "Batteries store energy, and UTEP engineers design better energy systems for the future."
+          }
         },
         {
           "name": "Civil Engineering",
           "research_areas": ["Infrastructure Design", "Structural Engineering", "Transportation", "Water Resources"],
-          "keywords": ["bridge", "building", "road", "house", "dam"]
+          "keywords": ["bridge", "building", "road", "house", "dam"],
+          "description": "UTEP civil engineers design roads, bridges, and water systems for the El Paso–Juárez binational region, one of the largest border metro areas in the world.",
+          "fun_facts": [
+            "UTEP civil engineering students have won national bridge-building competitions, designing tiny structures that hold thousands of pounds.",
+            "El Paso and Juárez share water from the Rio Grande — UTEP engineers help manage this critical shared resource.",
+            "UTEP researchers design earthquake-resistant buildings suited for the desert Southwest geology."
+          ],
+          "connections": {
+            "bridge": "Bridges connect communities — UTEP engineers design real bridges that link El Paso and Juárez!",
+            "building": "Every building starts with engineering — UTEP students learn to design structures that are safe and strong.",
+            "house": "The house you live in was designed by engineers — UTEP trains the people who build our cities."
+          }
         },
         {
           "name": "Mechanical Engineering",
           "research_areas": ["Aerospace Systems", "Biomedical Devices", "Additive Manufacturing", "Thermal Systems"],
-          "keywords": ["car", "airplane", "rocket", "wheel", "engine", "helicopter"]
+          "keywords": ["car", "airplane", "rocket", "wheel", "engine", "helicopter"],
+          "description": "UTEP mechanical engineers design everything from aerospace parts to 3D-printed medical devices. The department partners with NASA, Fort Bliss, and White Sands Missile Range.",
+          "fun_facts": [
+            "UTEP students have designed and launched actual rockets through NASA's University Student Launch Initiative.",
+            "UTEP's Formula SAE team designs and races a full car from scratch every year, competing against top engineering schools.",
+            "UTEP has one of the most advanced 3D-printing labs in the country, printing metal parts for aerospace and medical use."
+          ],
+          "connections": {
+            "car": "Cars are feats of mechanical engineering — UTEP's SAE team builds a real race car every year!",
+            "airplane": "Airplanes fly thanks to mechanical engineering — UTEP partners with NASA on aerospace research!",
+            "rocket": "Rockets need precision engineering — UTEP students have launched real rockets with NASA!"
+          }
         },
         {
           "name": "Metallurgical, Materials & Biomedical Engineering",
           "research_areas": ["3D Printing", "Biomaterials", "Nanomaterials", "Corrosion Science"],
-          "keywords": ["diamond", "bone", "metal"]
+          "keywords": ["diamond", "bone", "metal", "ring"],
+          "description": "This unique UTEP department studies the materials that make up everything around us — from metals and ceramics to materials used inside the human body like implants and prosthetics.",
+          "fun_facts": [
+            "UTEP researchers 3D-print titanium parts that can be used inside the human body as bone replacements.",
+            "UTEP's materials science program is one of the oldest and most respected in the southwestern U.S.",
+            "UTEP scientists study how desert heat and salt corrode bridges and pipelines, then design materials that last longer."
+          ],
+          "connections": {
+            "diamond": "Diamonds are one of the strongest materials on Earth — UTEP materials engineers study what makes materials strong!",
+            "bone": "UTEP engineers 3D-print materials that can replace broken bones inside the human body!"
+          }
         }
       ]
     },
@@ -36,32 +90,100 @@
         {
           "name": "Biological Sciences",
           "research_areas": ["Chihuahuan Desert Ecology", "Conservation Biology", "Evolutionary Biology", "Microbiology"],
-          "keywords": ["cactus", "tree", "flower", "fish", "bird", "butterfly", "snake", "spider", "ant", "leaf", "mushroom"]
+          "keywords": ["cactus", "tree", "flower", "fish", "bird", "butterfly", "snake", "spider", "ant", "leaf", "mushroom", "dog", "cat"],
+          "description": "UTEP biologists study the Chihuahuan Desert, one of the most biodiverse deserts on Earth. Researchers track endangered species, discover new organisms, and study how life adapts to extreme heat.",
+          "fun_facts": [
+            "The Chihuahuan Desert — right outside UTEP — has more plant species than any other desert in North America.",
+            "UTEP biologists have discovered species of desert insects and plants that were previously unknown to science.",
+            "UTEP's Biodiversity Collections house over 800,000 preserved specimens from the border region."
+          ],
+          "connections": {
+            "cactus": "Cacti thrive in the desert — UTEP biologists study how desert plants survive extreme heat and drought!",
+            "flower": "Flowers are part of complex ecosystems — UTEP researchers study how desert plants and pollinators depend on each other!",
+            "fish": "The Rio Grande supports endangered fish found nowhere else — UTEP biologists lead efforts to protect them!",
+            "butterfly": "Monarch butterflies migrate through El Paso — UTEP researchers track their incredible 2,000-mile journey!",
+            "cat": "All cats share DNA with wild desert predators — UTEP biologists study how animals evolve and adapt!",
+            "dog": "Dogs evolved from wolves over thousands of years — UTEP biologists study animal evolution and genetics!"
+          }
         },
         {
           "name": "Chemistry & Biochemistry",
           "research_areas": ["Drug Discovery", "Environmental Chemistry", "Forensic Science", "Materials Chemistry"],
-          "keywords": ["flask", "test tube", "molecule", "fire", "water"]
+          "keywords": ["flask", "test tube", "molecule", "fire", "water", "potion"],
+          "description": "UTEP chemists develop new medicines, study environmental pollutants, and do forensic analysis. The department has strong research in drug discovery for diseases that affect border communities.",
+          "fun_facts": [
+            "UTEP chemistry researchers are developing new medicines to fight diseases like diabetes, which affects many border residents.",
+            "UTEP's forensic science program trains students to analyze crime scene evidence using chemistry techniques.",
+            "UTEP chemists study air quality in El Paso, monitoring dust and pollution that blows across the border."
+          ],
+          "connections": {
+            "fire": "Fire is a chemical reaction — UTEP chemists study how molecules react, break apart, and form new substances!",
+            "water": "Clean water is a chemistry challenge — UTEP researchers develop ways to purify water for border communities!"
+          }
         },
         {
           "name": "Physics",
           "research_areas": ["Astrophysics", "Particle Physics", "Cosmology", "Optics"],
-          "keywords": ["star", "moon", "planet", "sun", "magnet", "telescope"]
+          "keywords": ["star", "moon", "planet", "sun", "magnet", "telescope", "space"],
+          "description": "UTEP physicists study the universe — from subatomic particles to distant galaxies. El Paso's clear desert skies make it an ideal location for astronomical observation.",
+          "fun_facts": [
+            "UTEP physicists collaborate with CERN, the world's largest particle physics lab in Switzerland.",
+            "El Paso's clear skies and low light pollution make it one of the best places in Texas for stargazing and space research.",
+            "UTEP physics students have contributed to research on dark matter and the origins of the universe."
+          ],
+          "connections": {
+            "star": "Stars are giant nuclear furnaces — UTEP physicists study how they form, shine, and eventually explode!",
+            "moon": "The moon shapes our tides and nights — UTEP astrophysicists study how celestial bodies interact!",
+            "sun": "The sun powers all life on Earth — UTEP physicists study solar energy and stellar physics!"
+          }
         },
         {
           "name": "Geological Sciences",
           "research_areas": ["Seismology", "Hydrogeology", "Mineral Resources", "Climate Science"],
-          "keywords": ["mountain", "volcano", "rock", "crystal", "earthquake"]
+          "keywords": ["mountain", "volcano", "rock", "crystal", "earthquake", "dinosaur", "fossil"],
+          "description": "The Franklin Mountains run right through UTEP's campus — a living geology textbook. UTEP geoscientists study earthquakes, groundwater, minerals, and ancient climates.",
+          "fun_facts": [
+            "The Franklin Mountains on UTEP's campus are one of the few mountain ranges located entirely within a U.S. city.",
+            "UTEP geologists use the Franklin Mountains as a natural outdoor research lab — students can walk to their study site!",
+            "UTEP researchers study ancient fossils found in West Texas that are hundreds of millions of years old."
+          ],
+          "connections": {
+            "mountain": "Mountains tell the story of Earth's history — UTEP geologists study the Franklin Mountains right on campus!",
+            "volcano": "Volcanoes shaped the landscape of West Texas millions of years ago — UTEP geologists study this fiery past!",
+            "dinosaur": "Dinosaur fossils have been found across West Texas — UTEP geologists study the ancient life preserved in these rocks!",
+            "rock": "Every rock tells a story — UTEP geologists read the history of Earth in the stones of the Chihuahuan Desert!"
+          }
         },
         {
           "name": "Mathematical Sciences",
           "research_areas": ["Applied Mathematics", "Statistics", "Computational Mathematics"],
-          "keywords": ["triangle", "circle", "square", "calculator"]
+          "keywords": ["triangle", "circle", "square", "calculator", "numbers"],
+          "description": "UTEP mathematicians develop models that solve real-world problems — from predicting disease spread to optimizing traffic flow along the border.",
+          "fun_facts": [
+            "UTEP math professors use statistics to model disease outbreaks and help public health officials on the border.",
+            "UTEP's math department runs tutoring and outreach programs that help thousands of El Paso students succeed.",
+            "Applied math at UTEP helps engineers, scientists, and business leaders make better decisions using data."
+          ],
+          "connections": {
+            "triangle": "Triangles are the building blocks of geometry — UTEP mathematicians use shapes to model the real world!",
+            "circle": "Circles appear everywhere in nature and engineering — UTEP math powers the science behind them!"
+          }
         },
         {
           "name": "Environmental Science & Engineering",
           "research_areas": ["Air Quality", "Water Treatment", "Renewable Energy", "Climate Change"],
-          "keywords": ["wind", "rain", "cloud", "tornado", "snowflake", "rainbow"]
+          "keywords": ["wind", "rain", "cloud", "tornado", "snowflake", "rainbow", "leaf"],
+          "description": "UTEP environmental scientists study air quality, water treatment, and renewable energy. The El Paso–Juárez airshed is a shared environment that requires cross-border collaboration.",
+          "fun_facts": [
+            "UTEP researchers monitor the air quality shared between El Paso and Juárez, protecting millions of people.",
+            "El Paso gets over 300 days of sunshine — UTEP researchers are making it a hub for solar energy development.",
+            "UTEP environmental engineers are developing affordable water purification systems for desert communities."
+          ],
+          "connections": {
+            "rain": "Rain is precious in the desert — UTEP environmental scientists study how to protect every drop of water!",
+            "cloud": "Clouds carry weather patterns across the border — UTEP scientists study climate to protect both El Paso and Juárez!",
+            "rainbow": "Rainbows happen when light meets water — UTEP scientists study both optics and water resources!"
+          }
         }
       ]
     },
@@ -71,22 +193,63 @@
         {
           "name": "Nursing",
           "research_areas": ["Border Health", "Community Nursing", "Pediatric Care"],
-          "keywords": ["stethoscope", "hospital", "nurse", "heart", "bandage"]
+          "keywords": ["stethoscope", "hospital", "nurse", "heart", "bandage"],
+          "description": "UTEP's School of Nursing prepares nurses to serve the medically underserved U.S.-Mexico border community, one of the most health-challenged regions in the country.",
+          "fun_facts": [
+            "UTEP nursing graduates serve communities where there is a critical shortage of healthcare providers.",
+            "UTEP's nursing program includes clinical rotations at hospitals throughout El Paso and the border region.",
+            "UTEP nursing students participate in free health clinics that serve uninsured border residents."
+          ],
+          "connections": {
+            "heart": "The heart pumps life through your body — UTEP nurses learn to care for hearts and save lives!",
+            "stethoscope": "Stethoscopes help doctors listen to your body — UTEP trains nurses who use them to keep people healthy!"
+          }
         },
         {
           "name": "Kinesiology",
           "research_areas": ["Sports Medicine", "Biomechanics", "Exercise Physiology"],
-          "keywords": ["running person", "basketball", "soccer ball", "tennis", "bicycle"]
+          "keywords": ["running person", "basketball", "soccer ball", "tennis", "bicycle", "football"],
+          "description": "UTEP's kinesiology department studies how the human body moves, exercises, and recovers from injury. The famous UTEP Miners athletics program is a living lab.",
+          "fun_facts": [
+            "UTEP's 1966 men's basketball team was the first team with an all-Black starting lineup to win the NCAA championship — changing sports history forever.",
+            "UTEP kinesiology students work directly with Miners athletes, applying science to improve athletic performance.",
+            "UTEP's biomechanics lab uses motion-capture cameras (like in movies!) to study how people walk, run, and jump."
+          ],
+          "connections": {
+            "basketball": "Basketball is science in motion — UTEP's 1966 team changed sports history by winning the NCAA championship!",
+            "soccer ball": "Soccer requires incredible athleticism — UTEP kinesiologists study how athletes move and perform!",
+            "bicycle": "Cycling is a full-body workout — UTEP exercise scientists study how your body produces energy and endurance!"
+          }
         },
         {
           "name": "Public Health",
           "research_areas": ["Epidemiology", "Health Disparities", "Environmental Health"],
-          "keywords": ["pill", "mask", "syringe"]
+          "keywords": ["pill", "mask", "syringe", "apple"],
+          "description": "UTEP public health researchers tackle health challenges unique to the U.S.-Mexico border — diabetes, air pollution-related illness, and access to healthcare.",
+          "fun_facts": [
+            "UTEP's border health research has received tens of millions in NIH funding to address health equity.",
+            "UTEP public health students conduct health screenings at community events throughout El Paso.",
+            "UTEP researchers study why diabetes rates are much higher on the border and how to fix it."
+          ],
+          "connections": {
+            "pill": "Medicine keeps people healthy — UTEP public health researchers work to make sure everyone on the border has access to care!",
+            "apple": "An apple a day! UTEP public health researchers study nutrition and disease prevention in border communities."
+          }
         },
         {
           "name": "Rehabilitation Sciences",
           "research_areas": ["Physical Therapy", "Speech-Language Pathology", "Prosthetics"],
-          "keywords": ["hand", "arm", "leg", "wheelchair"]
+          "keywords": ["hand", "arm", "leg", "wheelchair"],
+          "description": "UTEP's rehab sciences help people recover from injuries and disabilities. Researchers develop affordable prosthetics and therapy techniques for the border region.",
+          "fun_facts": [
+            "UTEP researchers have developed low-cost 3D-printed prosthetic hands for patients on both sides of the border.",
+            "UTEP's speech therapy program serves bilingual children in El Paso who need help communicating in two languages.",
+            "UTEP physical therapy students provide free rehabilitation services at community clinics in El Paso."
+          ],
+          "connections": {
+            "hand": "Hands let us create and connect — UTEP researchers 3D-print prosthetic hands for people who need them!",
+            "wheelchair": "Wheelchairs give people freedom — UTEP rehab scientists work to make mobility accessible for everyone!"
+          }
         }
       ]
     },
@@ -96,12 +259,32 @@
         {
           "name": "Finance & Economics",
           "research_areas": ["International Trade", "Border Economics", "Financial Markets"],
-          "keywords": ["money", "dollar", "coin", "bank", "chart"]
+          "keywords": ["money", "dollar", "coin", "bank", "chart"],
+          "description": "UTEP's business college, named after El Paso entrepreneur Woody Hunt, prepares students for the U.S.-Mexico border economy — one of the world's most active trade corridors.",
+          "fun_facts": [
+            "The El Paso–Juárez region processes over $100 billion in annual cross-border trade.",
+            "UTEP business students study international trade firsthand — the Paso del Norte bridge to Mexico is minutes from campus.",
+            "UTEP's economics research helps city leaders understand and grow the El Paso border economy."
+          ],
+          "connections": {
+            "money": "Money makes the economy move — UTEP business students study one of the world's busiest trade corridors right on the border!",
+            "chart": "Charts track how businesses grow — UTEP economists study the $100 billion El Paso–Juárez trade economy!"
+          }
         },
         {
           "name": "Marketing & Management",
           "research_areas": ["Entrepreneurship", "Supply Chain Management", "Digital Marketing"],
-          "keywords": ["shopping cart", "store", "briefcase", "lightbulb"]
+          "keywords": ["shopping cart", "store", "briefcase", "lightbulb"],
+          "description": "UTEP's management programs train entrepreneurs and business leaders who serve the bilingual, binational border market.",
+          "fun_facts": [
+            "UTEP's Mike Loya Center for Innovation and Commerce helps students launch real startup businesses.",
+            "UTEP business students learn to operate in a bilingual market — a huge advantage in the global economy.",
+            "Many UTEP business graduates start companies that operate on both sides of the U.S.-Mexico border."
+          ],
+          "connections": {
+            "lightbulb": "Lightbulbs represent ideas — UTEP's innovation center helps students turn ideas into real businesses!",
+            "shopping cart": "Shopping is powered by supply chains — UTEP students learn how products travel across the border to reach stores!"
+          }
         }
       ]
     },
@@ -111,12 +294,33 @@
         {
           "name": "Teacher Education",
           "research_areas": ["Bilingual Education", "STEM Education", "Literacy", "Educational Technology"],
-          "keywords": ["book", "pencil", "school", "chalkboard", "apple", "backpack"]
+          "keywords": ["book", "pencil", "school", "chalkboard", "apple", "backpack", "ruler"],
+          "description": "UTEP trains bilingual teachers who serve El Paso's diverse schools. The college focuses on equity-centered education for border communities.",
+          "fun_facts": [
+            "UTEP produces more bilingual certified teachers than almost any other university in Texas.",
+            "Over 80% of El Paso students speak Spanish at home — UTEP trains teachers who can teach in both languages.",
+            "UTEP education students start working in real classrooms during their first year of training."
+          ],
+          "connections": {
+            "book": "Books open up worlds — UTEP trains bilingual teachers who help kids in El Paso read in two languages!",
+            "pencil": "Pencils are the start of every idea — UTEP trains thousands of teachers who inspire the next generation!",
+            "school": "Schools shape the future — UTEP prepares more bilingual teachers than almost any university in Texas!"
+          }
         },
         {
           "name": "Educational Leadership & Foundations",
           "research_areas": ["Education Policy", "Community Engagement", "Higher Education"],
-          "keywords": ["graduation cap", "trophy", "medal"]
+          "keywords": ["graduation cap", "trophy", "medal", "certificate"],
+          "description": "UTEP's education leadership program trains principals, administrators, and policy researchers who shape schools across the border region.",
+          "fun_facts": [
+            "UTEP's education PhD program is nationally ranked for equity-centered research in schools serving Latino communities.",
+            "UTEP has helped El Paso's high school graduation rate rise significantly over the past decade.",
+            "Many El Paso school principals and superintendents are UTEP graduates."
+          ],
+          "connections": {
+            "graduation cap": "Graduation caps celebrate achievement — UTEP helps more border students reach that moment!",
+            "trophy": "Trophies celebrate winners — UTEP education leaders help every student succeed, not just the ones on top!"
+          }
         }
       ]
     },
@@ -126,32 +330,94 @@
         {
           "name": "Art",
           "research_areas": ["Visual Arts", "Sculpture", "Digital Art", "Border Culture Art"],
-          "keywords": ["paint brush", "palette", "camera", "picture", "painting"]
+          "keywords": ["paint brush", "palette", "camera", "picture", "painting", "smiley face"],
+          "description": "UTEP's art department reflects the border region's rich cultural identity, blending Mexican, Indigenous, and American artistic traditions. The Rubin Center hosts world-class exhibitions.",
+          "fun_facts": [
+            "UTEP's Stanlee and Gerald Rubin Center for the Visual Arts hosts world-class contemporary art exhibitions on campus.",
+            "UTEP art students create murals around El Paso that celebrate the city's unique border culture and history.",
+            "UTEP's digital art program teaches students to create art using the same tools used in Hollywood movies and video games."
+          ],
+          "connections": {
+            "paint brush": "Paintbrushes bring imagination to life — UTEP artists create works that celebrate El Paso's border culture!",
+            "smiley face": "Art makes people smile — UTEP artists create murals and installations all around El Paso!"
+          }
         },
         {
           "name": "Music",
           "research_areas": ["Music Performance", "Music Education", "Mariachi Studies", "Composition"],
-          "keywords": ["guitar", "piano", "drum", "music note", "microphone", "trumpet"]
+          "keywords": ["guitar", "piano", "drum", "music note", "microphone", "trumpet"],
+          "description": "UTEP's music program celebrates El Paso's cross-cultural musical heritage — from mariachi and norteño to classical and jazz.",
+          "fun_facts": [
+            "El Paso is a UNESCO Creative City of Music — UTEP musicians play a key role in this international recognition.",
+            "UTEP has a mariachi ensemble that performs at events across the Southwest, celebrating Mexican musical traditions.",
+            "UTEP's music education program trains teachers who bring music to schools throughout the border region."
+          ],
+          "connections": {
+            "guitar": "Guitars are the soul of border music — UTEP's music program celebrates El Paso's mariachi and norteño traditions!",
+            "music note": "Music notes carry melodies across cultures — El Paso is a UNESCO Creative City of Music thanks partly to UTEP!",
+            "drum": "Drums set the rhythm — UTEP musicians perform everything from mariachi to jazz to classical!"
+          }
         },
         {
           "name": "Theatre & Dance",
           "research_areas": ["Performing Arts", "Choreography", "Stage Design"],
-          "keywords": ["mask", "dancer", "stage"]
+          "keywords": ["mask", "dancer", "stage"],
+          "description": "UTEP's theatre and dance programs train performers and designers who tell stories reflecting the border region's rich cultural mix.",
+          "fun_facts": [
+            "UTEP's Dinner Theatre is one of the longest-running dinner theatres in the Southwest.",
+            "UTEP dance students perform works that blend American modern dance with Mexican folk dance traditions.",
+            "UTEP theatre students design sets, costumes, and lighting for multiple full productions every year."
+          ],
+          "connections": {
+            "mask": "Masks transform performers — UTEP's theatre program tells stories that celebrate border culture!",
+            "dancer": "Dance is storytelling through movement — UTEP dancers blend American and Mexican dance traditions!"
+          }
         },
         {
           "name": "Communication",
           "research_areas": ["Journalism", "Film Studies", "Public Relations", "Digital Media"],
-          "keywords": ["tv", "newspaper", "megaphone", "phone"]
+          "keywords": ["tv", "newspaper", "megaphone", "phone", "camera"],
+          "description": "UTEP's communication department trains journalists, filmmakers, and media professionals who tell the stories of the border region to the world.",
+          "fun_facts": [
+            "UTEP journalism students report real news for Borderzine, a bilingual news outlet covering the El Paso–Juárez border.",
+            "UTEP's film program has produced students whose work has screened at international film festivals.",
+            "UTEP communication graduates work at major news outlets, PR firms, and media companies across the country."
+          ],
+          "connections": {
+            "tv": "TV brings stories into your home — UTEP trains journalists who report on the U.S.-Mexico border!",
+            "phone": "Phones connect the world — UTEP digital media students learn to create content that reaches millions!"
+          }
         },
         {
           "name": "History",
           "research_areas": ["Border History", "Latin American History", "U.S.-Mexico Relations"],
-          "keywords": ["castle", "sword", "flag", "map", "clock"]
+          "keywords": ["castle", "sword", "flag", "map", "clock"],
+          "description": "UTEP historians study the rich, complex history of the U.S.-Mexico border — from ancient Indigenous peoples to modern immigration and trade.",
+          "fun_facts": [
+            "UTEP was founded in 1914 as the Texas State School of Mines — over 110 years of history on the border.",
+            "UTEP's campus architecture is designed in the Bhutanese style — inspired by a National Geographic photo of monasteries in Bhutan.",
+            "UTEP's Institute of Oral History has recorded thousands of hours of stories from border residents."
+          ],
+          "connections": {
+            "castle": "Castles are history you can see — UTEP's own campus looks like a Bhutanese monastery, unique in America!",
+            "flag": "Flags represent nations — UTEP sits where two nations meet, studying 400+ years of border history!",
+            "map": "Maps show where we are — UTEP historians map the fascinating history of the U.S.-Mexico border!"
+          }
         },
         {
           "name": "Languages & Linguistics",
           "research_areas": ["Bilingualism", "Spanish Linguistics", "Translation Studies"],
-          "keywords": ["speech bubble", "letter", "globe"]
+          "keywords": ["speech bubble", "letter", "globe", "abc"],
+          "description": "UTEP's linguistics program studies bilingualism and language along the border, where millions of people switch between English and Spanish daily.",
+          "fun_facts": [
+            "El Paso is one of the most bilingual cities in America — over 80% of residents speak Spanish, making it a living linguistics lab.",
+            "UTEP linguists study code-switching — how border residents blend English and Spanish in everyday conversation.",
+            "UTEP's translation program trains professional translators who help hospitals, courts, and businesses communicate across languages."
+          ],
+          "connections": {
+            "speech bubble": "Speech bubbles hold words — UTEP linguists study how El Paso residents communicate in two languages every day!",
+            "globe": "The globe has thousands of languages — UTEP studies how bilingualism makes border communities stronger!"
+          }
         }
       ]
     }

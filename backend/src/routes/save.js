@@ -3,14 +3,13 @@ import { insertDrawing } from '../services/db.js';
 
 const router = Router();
 
-// Sanitize name: strip HTML, trim, cap length
 function sanitizeName(raw) {
   if (!raw || typeof raw !== 'string') return 'Anonymous Artist';
   const cleaned = raw.replace(/<[^>]*>/g, '').trim().slice(0, 30);
   return cleaned || 'Anonymous Artist';
 }
 
-router.post('/save', (req, res, next) => {
+router.post('/save', async (req, res, next) => {
   try {
     const { name, image, guess, college, department, explanation, fun_fact } = req.body;
 
@@ -18,7 +17,7 @@ router.post('/save', (req, res, next) => {
       return res.status(400).json({ error: 'Missing required fields (image, guess).' });
     }
 
-    const result = insertDrawing({
+    const result = await insertDrawing({
       name: sanitizeName(name),
       image_b64: image,
       top_guess: guess,

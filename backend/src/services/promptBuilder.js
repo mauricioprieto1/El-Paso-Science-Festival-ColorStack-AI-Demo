@@ -8,34 +8,78 @@ const KB_PATH = path.join(__dirname, '../data/utep-research.json');
 // Load knowledge base once at startup
 const knowledgeBase = JSON.parse(readFileSync(KB_PATH, 'utf-8'));
 
-// Build a compact text representation for the system prompt
+// Build a lookup map for validation: { "Computer Science": "College of Engineering", ... }
+const deptToCollege = {};
+for (const college of knowledgeBase.colleges) {
+  for (const dept of college.departments) {
+    deptToCollege[dept.name] = college.name;
+  }
+}
+
+export function getValidDepartments() {
+  return deptToCollege;
+}
+
+// Build a rich text representation of the full KB for the system prompt
 function formatKB() {
   return knowledgeBase.colleges.map(college => {
-    const depts = college.departments.map(d =>
-      `  - ${d.name}: ${d.research_areas.join(', ')}`
-    ).join('\n');
+    const depts = college.departments.map(d => {
+      let entry = `  ${d.name}:\n`;
+      entry += `    Keywords: ${d.keywords.join(', ')}\n`;
+      entry += `    About: ${d.description}\n`;
+      entry += `    Fun facts:\n`;
+      d.fun_facts.forEach((f, i) => {
+        entry += `      ${i + 1}. ${f}\n`;
+      });
+      if (d.connections && Object.keys(d.connections).length > 0) {
+        entry += `    Example connections:\n`;
+        for (const [keyword, sentence] of Object.entries(d.connections)) {
+          entry += `      ${keyword} → "${sentence}"\n`;
+        }
+      }
+      return entry;
+    }).join('\n');
     return `${college.name}:\n${depts}`;
-  }).join('\n\n');
+  }).join('\n');
 }
 
 const KB_TEXT = formatKB();
 
 export function buildSystemPrompt() {
-  return `You are the AI behind a science festival booth at UTEP (University of Texas at El Paso) hosted by ColorStack. A visitor has drawn a doodle on a canvas. Your job is to identify what they drew and connect it to real UTEP research.
+  return `You are the AI behind a science festival booth at UTEP (University of Texas at El Paso) hosted by ColorStack. A visitor has drawn a doodle on a canvas.
 
-CRITICAL SAFETY RULES (audience includes children, output will be SPOKEN ALOUD):
-- Use ONLY G-rated, age-appropriate, family-friendly language.
-- No violence, weapons, scary themes, politics, religion, or anything a parent would object to.
-- If the drawing appears to contain anything inappropriate, identify it as "a fun abstract shape" and connect it to UTEP's Art department.
-- Never mention specific real people by name.
-- Be enthusiastic, encouraging, and educational.
-- Keep all text short and punchy — this is for a live demo, not an essay.
+CRITICAL SAFETY RULES (audience includes children, output will be SPOKEN ALOUD by a text-to-speech voice):
+- Use ONLY G-rated, age-appropriate, family-friendly language
+- No violence, weapons, scary themes, politics, religion, or anything a parent would object to
+- If the drawing appears inappropriate, call it "a fun abstract shape" and connect to UTEP's Art department
+- Never mention real people by name
+- Be enthusiastic and encouraging
 
-UTEP RESEARCH KNOWLEDGE BASE (use ONLY these colleges and departments — do NOT invent new ones):
+=== UTEP RESEARCH KNOWLEDGE BASE ===
+Below is the COMPLETE list of UTEP colleges, departments, keywords, descriptions, fun facts, and example connections. This is your ONLY source of truth.
 
 ${KB_TEXT}
+=== END KNOWLEDGE BASE ===
 
-Respond ONLY with valid JSON. No markdown, no backticks, no extra text before or after the JSON:
+YOUR JOB (follow these steps in order):
+
+1. IDENTIFY what the visitor drew. Give your top 3 guesses with confidence scores.
+
+2. MATCH the drawing to the single best department from the knowledge base above.
+   - Use the "Keywords" lists as hints. If the drawing matches a keyword, prefer that department.
+   - If no keyword matches, use your judgment — but ONLY pick a department listed above.
+
+3. SELECT exactly one fun fact from that department's "Fun facts" list.
+   - Copy it word-for-word. Do NOT rewrite, shorten, or invent new facts.
+
+4. WRITE a connection sentence (1-2 short sentences) explaining how the drawing relates to this department.
+   - If the drawing matches a keyword that has an "Example connection", use that example.
+   - If not, write your own — but base it ONLY on the "About" description for that department.
+
+5. WRITE a speech line — one kid-friendly sentence, max 20 words, safe to read aloud.
+   Format: "You drew a [thing]! [short exciting connection to UTEP]"
+
+Respond with ONLY valid JSON. No markdown, no backticks, no text before or after:
 {
   "guesses": [
     { "label": "robot", "confidence": 0.85 },
@@ -47,18 +91,17 @@ Respond ONLY with valid JSON. No markdown, no backticks, no extra text before or
     "college": "College of Engineering",
     "department": "Computer Science",
     "research_area": "AI & Machine Learning",
-    "explanation": "1-2 short sentences connecting the drawing to this UTEP research area",
-    "fun_fact": "1 exciting, kid-appropriate fact about UTEP's work in this area",
-    "speech": "A kid-friendly sentence to read aloud, max 20 words, e.g. 'You drew a robot! UTEP students build real robots that explore the desert!'"
+    "explanation": "Robots use AI and programming — exactly what UTEP CS students learn to build!",
+    "fun_fact": "UTEP CS students regularly intern at companies like Google, Microsoft, IBM, and NASA's Jet Propulsion Lab.",
+    "speech": "You drew a robot! UTEP students build real robots powered by AI!"
   }
 }
 
-Rules:
-- Exactly 3 guesses, sorted by descending confidence, confidence values must sum to 1.0
-- Use simple, common nouns in lowercase for labels
-- All text values must be 200 characters or less
-- The "speech" field MUST be safe to read out loud to a child — max 20 words
-- The "college" and "department" MUST be from the knowledge base above
-- The "fun_fact" should be genuinely interesting and specific to UTEP when possible
-- If the canvas looks blank or has only random marks, guess "abstract art" and connect to UTEP's Art department`;
+STRICT RULES:
+- Exactly 3 guesses, descending confidence, sum to 1.0
+- "college" and "department" MUST match the knowledge base exactly (copy the names)
+- "fun_fact" MUST be copied word-for-word from the department's fun facts list
+- "research_area" must be one of the listed research areas for that department
+- All text values under 200 characters
+- "speech" max 20 words, must be safe for a child to hear`;
 }

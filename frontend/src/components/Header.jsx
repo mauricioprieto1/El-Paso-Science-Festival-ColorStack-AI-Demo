@@ -2,29 +2,25 @@ import { NavLink } from 'react-router-dom'
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-between px-6 py-4 border-b border-utep-border bg-utep-navy-deep/85 backdrop-blur-lg shrink-0">
-      {/* Logo */}
-      <div className="flex items-center gap-3">
-        <div className="w-11 h-11 rounded-xl bg-utep-orange flex items-center justify-center font-heading text-xl text-white shadow-[0_0_20px_var(--color-utep-orange-glow)]">
+    <header className="flex items-center justify-between px-5 py-2.5 border-b border-white/5 shrink-0">
+      <div className="flex items-center gap-2.5">
+        <div className="w-8 h-8 rounded-lg bg-utep-orange flex items-center justify-center font-heading text-sm text-white">
           UT
         </div>
-        <div className="flex flex-col">
-          <span className="font-heading text-xl tracking-widest text-white leading-none">
-            UTEP Draw AI
-          </span>
-          <span className="text-[10px] font-medium tracking-[3px] uppercase text-utep-orange leading-snug">
-            El Paso Science Festival · ColorStack
-          </span>
-        </div>
+        <span className="font-heading text-base tracking-widest text-white/90 leading-none">
+          UTEP Draw AI
+        </span>
+        <span className="hidden sm:inline text-[9px] tracking-[2px] uppercase text-white/30 ml-1">
+          ColorStack · El Paso Science Festival
+        </span>
       </div>
 
-      {/* Nav */}
-      <nav className="flex items-center gap-4">
+      <nav className="flex items-center gap-3">
         <NavLink
           to="/"
           className={({ isActive }) =>
-            `text-xs font-bold tracking-widest uppercase transition-colors ${
-              isActive ? 'text-utep-orange' : 'text-utep-text-dim hover:text-white'
+            `text-[11px] font-medium tracking-wider uppercase transition-colors ${
+              isActive ? 'text-utep-orange' : 'text-white/30 hover:text-white/60'
             }`
           }
         >
@@ -33,19 +29,13 @@ export default function Header() {
         <NavLink
           to="/gallery"
           className={({ isActive }) =>
-            `text-xs font-bold tracking-widest uppercase transition-colors ${
-              isActive ? 'text-utep-orange' : 'text-utep-text-dim hover:text-white'
+            `text-[11px] font-medium tracking-wider uppercase transition-colors ${
+              isActive ? 'text-utep-orange' : 'text-white/30 hover:text-white/60'
             }`
           }
         >
           Gallery
         </NavLink>
-
-        {/* Live badge */}
-        <div className="flex items-center gap-2 bg-utep-glass border border-utep-border rounded-full px-3 py-1.5 text-[11px] font-medium tracking-widest uppercase text-utep-orange-light">
-          <div className="w-2 h-2 rounded-full bg-utep-orange animate-[pulse-dot_1.8s_ease-in-out_infinite]" />
-          AI Live
-        </div>
       </nav>
     </header>
   )

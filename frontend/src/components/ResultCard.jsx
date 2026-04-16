@@ -1,60 +1,40 @@
 import { useEffect, useRef } from 'react';
 
-const BAR_STYLES = ['bg-utep-orange', 'bg-utep-orange/50', 'bg-utep-orange/25'];
-
 export default function ResultCard({ guesses }) {
-  const itemRefs = useRef([]);
+  const barsRef = useRef([]);
 
   useEffect(() => {
-    // Animate bars in sequence
     guesses.forEach((_, i) => {
       setTimeout(() => {
-        const el = itemRefs.current[i];
-        if (el) {
-          el.style.opacity = '1';
-          el.style.transform = 'translateX(0)';
-          const bar = el.querySelector('[data-bar]');
-          if (bar) bar.style.width = bar.dataset.target;
-        }
-      }, i * 150 + 50);
+        const el = barsRef.current[i];
+        if (el) el.style.width = el.dataset.target;
+      }, i * 120 + 50);
     });
   }, [guesses]);
 
   return (
-    <div className="bg-utep-card border border-utep-border rounded-2xl p-5 backdrop-blur-lg animate-[slide-up_0.4s_ease-out]">
-      <div className="text-[10px] font-bold tracking-[3px] uppercase text-utep-orange mb-4">
-        🤖 AI Top Guesses
-      </div>
+    <div className="flex flex-col gap-2">
+      {guesses.map((g, i) => {
+        const pct = Math.round(g.confidence * 100);
+        const opacity = i === 0 ? 'text-white' : 'text-white/40';
+        const barOpacity = i === 0 ? 'bg-utep-orange' : i === 1 ? 'bg-utep-orange/40' : 'bg-utep-orange/20';
 
-      <div className="flex flex-col gap-2.5">
-        {guesses.map((g, i) => {
-          const pct = Math.round(g.confidence * 100);
-          return (
-            <div
-              key={i}
-              ref={(el) => (itemRefs.current[i] = el)}
-              className="flex items-center gap-3 opacity-0 translate-x-4 transition-all duration-400"
-            >
-              <span className="font-mono text-[11px] text-utep-text-dim w-5 shrink-0">
-                #{i + 1}
-              </span>
-              <span className={`text-[15px] flex-1 capitalize ${i === 0 ? 'font-bold text-white' : 'font-medium text-utep-text-dim'}`}>
-                {g.label}
-              </span>
-              <div className="w-20 h-1.5 bg-white/8 rounded-full overflow-hidden shrink-0">
-                <div
-                  data-bar
-                  data-target={`${pct}%`}
-                  className={`h-full rounded-full transition-[width] duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] w-0 ${BAR_STYLES[i]}`}
-                />
-              </div>
-              <span className="font-mono text-[11px] text-utep-text-dim w-9 text-right shrink-0">
-                {pct}%
-              </span>
+        return (
+          <div key={i} className="flex items-center gap-2.5">
+            <span className={`text-sm capitalize flex-1 ${opacity} ${i === 0 ? 'font-semibold' : ''}`}>
+              {g.label}
+            </span>
+            <div className="w-24 h-1 bg-white/5 rounded-full overflow-hidden">
+              <div
+                ref={(el) => (barsRef.current[i] = el)}
+                data-target={`${pct}%`}
+                className={`h-full rounded-full w-0 transition-[width] duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${barOpacity}`}
+              />
             </div>
-          );
-        })}
-      </div>
+            <span className="text-[11px] text-white/30 font-mono w-8 text-right">{pct}%</span>
+          </div>
+        );
+      })}
     </div>
   );
 }

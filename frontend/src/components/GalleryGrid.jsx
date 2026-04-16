@@ -73,10 +73,12 @@ export default function GalleryGrid({ drawings }) {
   }
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-      {drawings.map((d) => (
-        <GalleryCard key={d.id} drawing={d} />
-      ))}
+    <div className="flex justify-center">
+      <div className="grid w-fit grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {drawings.map((d) => (
+          <GalleryCard key={d.id} drawing={d} />
+        ))}
+      </div>
     </div>
   );
 }

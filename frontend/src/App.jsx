@@ -6,12 +6,14 @@ import GalleryPage from './pages/GalleryPage'
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="relative z-1 min-h-screen flex flex-col">
+      <div className="relative z-1 h-screen flex flex-col overflow-hidden">
         <Header />
-        <Routes>
-          <Route path="/" element={<DrawPage />} />
-          <Route path="/gallery" element={<GalleryPage />} />
-        </Routes>
+        <div className="flex-1 min-h-0 overflow-y-auto">
+          <Routes>
+            <Route path="/" element={<DrawPage />} />
+            <Route path="/gallery" element={<GalleryPage />} />
+          </Routes>
+        </div>
       </div>
     </BrowserRouter>
   )
